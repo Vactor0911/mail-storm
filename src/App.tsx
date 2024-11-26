@@ -1,8 +1,15 @@
-function App() {
-  return <>
-    <h1>Mail Storm</h1>
-    <p>스팸 메일을 가려내는 AI를 활용한 간단한 프로젝트</p>
-  </>;
-}
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import Main from "./pages/Main";
+
+const App = () => {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
 
 export default App;
