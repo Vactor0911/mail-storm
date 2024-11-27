@@ -3,7 +3,7 @@ import Main from "./pages/Main";
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/mail-storm/">
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="*" element={<Navigate to="/" replace />} />

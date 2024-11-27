@@ -7,6 +7,7 @@ import { color } from "../utils/theme";
 import StyledTable from "../components/StyledTable";
 import StyledChart from "../components/StyledChart";
 import { EmailProps, emailsAtom, isInputActiveAtom } from "../state";
+import { useAtom } from "jotai";
 
 // 아이콘
 import MailLockTwoToneIcon from "@mui/icons-material/MailLockTwoTone";
@@ -14,7 +15,6 @@ import GithubIcon from "../assets/github.png";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import RefreshRoundedIcon from "@mui/icons-material/RefreshRounded";
 import TroubleshootRoundedIcon from "@mui/icons-material/TroubleshootRounded";
-import { useAtom } from "jotai";
 
 const Style = styled.div`
   display: flex;

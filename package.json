@@ -8,7 +8,9 @@
     "devLan": "vite --port 4000 --host",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
@@ -19,6 +21,7 @@
     "@types/cors": "^2.8.17",
     "axios": "^1.7.8",
     "cors": "^2.8.5",
+    "gh-pages": "^6.2.0",
     "jotai": "^2.10.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
