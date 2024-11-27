@@ -138,22 +138,26 @@ const Style = styled.div`
 `;
 
 const Main = () => {
-
   const requestAnalysis = async () => {
     try {
-      const emailTitles = emails.map(email => email.title);
-      const res = await axios.post("https://mailstorm.vactor0911.dev/api/analysis-email", {
-        emailTitles, // emailTitle 데이터 전송
-      });
+      const emailTitles = emails.map((email) => email.title);
+      console.log("Data to be sent:", emailTitles);
+      const res = await axios.post(
+        "https://mailstorm.vactor0911.dev/api/analysis-email",
+        {
+          emailTitles, // emailTitle 데이터 전송
+        }
+      );
 
       console.log("Data sent successfully:", res.data.data);
+      setEmails(res.data.data);
     } catch (error) {
       console.error("Error occurred while sending data:", error);
     }
   };
 
   const [emails, setEmails] = useAtom(emailsAtom);
-  const [, setIsInputActive] = useAtom(isInputActiveAtom);
+  const [isInputActive, setIsInputActive] = useAtom(isInputActiveAtom);
 
   const scrollRef = useRef<HTMLTableElement>(null);
   useEffect(() => {
@@ -195,23 +199,28 @@ const Main = () => {
             <StyledTable />
           </div>
           <div className="button-container">
-            {emails.length < 10 && (
-              <Button
-                variant="outlined"
-                color="modern"
-                startIcon={<AddRoundedIcon />}
-                sx={{ fontWeight: "bold" }}
-                onClick={() => {
-                  if (emails[emails.length - 1]?.title === "새로운 메일 제목") {
-                    return;
-                  }
-
-                  setEmails([...emails, { title: "새로운 메일 제목" }]);
-                }}
-              >
-                제목 추가하기
-              </Button>
-            )}
+            <Button
+              variant="outlined"
+              color="modern"
+              startIcon={<AddRoundedIcon />}
+              disabled={
+                emails.length >= 10 ||
+                !isInputActive ||
+                emails.filter(
+                  (email) =>
+                    email.title === "" || email.title === "새로운 메일 제목"
+                ).length > 0
+              }
+              sx={{ fontWeight: "bold" }}
+              onClick={() => {
+                if (emails[emails.length - 1]?.title === "새로운 메일 제목") {
+                  return;
+                }
+                setEmails([...emails, { title: "새로운 메일 제목" }]);
+              }}
+            >
+              제목 추가하기
+            </Button>
             <Button
               variant="outlined"
               color="modern"
@@ -231,16 +240,24 @@ const Main = () => {
             >
               초기화하기
             </Button>
-            <Button variant="contained" startIcon={<TroubleshootRoundedIcon />} onClick={() => {
-              setIsInputActive(false);
-              requestAnalysis(); // 분석 시작
-            }}>
+            <Button
+              variant="contained"
+              startIcon={<TroubleshootRoundedIcon />}
+              disabled={
+                !isInputActive ||
+                emails.filter((email) => email.title === "").length > 0
+              }
+              onClick={() => {
+                setIsInputActive(false);
+                requestAnalysis(); // 분석 시작
+              }}
+            >
               분석하기
             </Button>
           </div>
         </div>
 
-        <Divider className="divider" variant="middle" flexItem  />
+        <Divider className="divider" variant="middle" flexItem />
 
         <div className="chart-container">
           <h1>분석결과</h1>
