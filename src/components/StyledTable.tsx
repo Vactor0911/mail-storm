@@ -46,9 +46,6 @@ const StyledTable = () => {
             메일 제목
           </StyledTableCell>
           <StyledTableCell align="center" sx={{ fontWeight: "bold" }}>
-            점수
-          </StyledTableCell>
-          <StyledTableCell align="center" sx={{ fontWeight: "bold" }}>
             결과
           </StyledTableCell>
         </TableRow>
@@ -78,18 +75,12 @@ const StyledTable = () => {
             </StyledTableCell>
             <StyledTableCell
               align="center"
-              sx={{ color: row.result == "스팸" ? color.red : "" }}
-            >
-              {row.score}
-            </StyledTableCell>
-            <StyledTableCell
-              align="center"
               sx={{
                 fontWeight: "bold",
-                color: row.result == "스팸" ? color.red : "",
+                color: row.result === "spam" ? color.red : "",
               }}
             >
-              {row.result}
+              {row.result !== undefined ? (row.result === "spam" ? "스팸" : "정상") : ""}
             </StyledTableCell>
           </StyledTableRow>
         ))}
