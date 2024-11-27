@@ -25,8 +25,7 @@ declare module "@mui/material/Button" {
   }
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const theme = createTheme({
+createTheme({
   palette: {
     modern: {
       main: color.primary,
