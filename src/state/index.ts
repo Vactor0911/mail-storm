@@ -5,6 +5,6 @@ export interface EmailProps {
   result?: string;
 }
 
-export const emailsAtom = atom([{ title: "새로운 메일 제목" }] as EmailProps[]);
+export const emailsAtom = atom([{ title: "" }] as EmailProps[]);
 
 export const isInputActiveAtom = atom(true);

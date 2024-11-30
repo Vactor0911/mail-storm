@@ -208,15 +208,15 @@ const Main = () => {
                 !isInputActive ||
                 emails.filter(
                   (email) =>
-                    email.title === "" || email.title === "새로운 메일 제목"
+                    email.title === "" || email.title === ""
                 ).length > 0
               }
               sx={{ fontWeight: "bold" }}
               onClick={() => {
-                if (emails[emails.length - 1]?.title === "새로운 메일 제목") {
+                if (emails[emails.length - 1]?.title === "") {
                   return;
                 }
-                setEmails([...emails, { title: "새로운 메일 제목" }]);
+                setEmails([...emails, { title: "" }]);
               }}
             >
               제목 추가하기
@@ -227,13 +227,13 @@ const Main = () => {
               startIcon={<RefreshRoundedIcon />}
               sx={{ fontWeight: "bold" }}
               onClick={() => {
-                setEmails([{ title: "새로운 메일 제목" }] as EmailProps[]);
+                setEmails([{ title: "" }] as EmailProps[]);
                 window.scrollTo({ top: 0, behavior: "smooth" });
                 const emailTitleInput = document.querySelector(
                   "#tf-email-title"
                 ) as HTMLInputElement | null;
                 if (emailTitleInput) {
-                  emailTitleInput.value = "새로운 메일 제목";
+                  emailTitleInput.value = "";
                 }
                 setIsInputActive(true);
               }}
