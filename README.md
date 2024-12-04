@@ -3,6 +3,9 @@
 > AI를 이용한 메일의 스팸 여부 판단 사이트! 👉 https://vactor0911.github.io/mail-storm/
 
 ![예시 이미지](https://github.com/user-attachments/assets/5e0b4117-9192-426c-89fb-a6d82f2be56a)
+
+> [!WARNING]
+> 2024.12.05 부로 서버 호스팅이 종료되어 분석 기능을 이용하실 수 없습니다.
 <br />
 <br />
 ## 📖 Description
