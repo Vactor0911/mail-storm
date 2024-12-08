@@ -8,6 +8,7 @@
 > 2024.12.05 부로 서버 호스팅이 종료되어 분석 기능을 이용하실 수 없습니다.
 <br />
 <br />
+
 ## 📖 Description
 
 메일의 제목을 입력하여 해당 메일의 스팸 여부를 예측하는 서비스입니다.
@@ -15,6 +16,7 @@
 학습된 SVM 인공지능 모델을 활용해 메일의 제목으로 스팸 여부를 예측합니다.
 <br />
 <br />
+
 ## 🔧 Stack
 
 [![React](https://img.shields.io/badge/REACT-61DAFB?style=for-the-badge&logo=react&logoColor=000)](https://react.dev/)
@@ -33,6 +35,7 @@
 )](https://pages.github.com/)
 <br />
 <br />
+
 ## 💻 Getting Started
 
 ### 메일 제목 입력
